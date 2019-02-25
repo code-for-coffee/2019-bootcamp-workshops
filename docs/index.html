@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>Home - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <h2><a href="index.html">Home</a></h2>
+</nav>
+
+<div id="main">
+    
+
+    
+
+
+
+    
+
+
+    <section class="package">
+        <h3> </h3>		
+    </section>
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    <section class="readme">
+        <article><hr>
+<p>title: Introduction to React.js
+type: lesson
+duration: &quot;1:30&quot;
+creator:
+    name: James Traver
+    city: CHI</p>
+<h2>competencies: Programming, Front-end Frameworks, React, JSX</h2><h1>Introduction to React.js</h1><h3>Objectives</h3><p><em>After this lesson, students will be able to:</em></p>
+<ul>
+<li>Understand what problem React.js solves</li>
+<li>Use JSX to create a React component</li>
+<li>Render basic React components using the ReactDOM</li>
+</ul>
+<h3>Preparation</h3><p><em>Before this lesson, students should already be able to:</em></p>
+<ul>
+<li>Manipulate the DOM with vanilla Javascript</li>
+<li>Create individual views for design elements</li>
+<li>Identify the moving parts of an MVC framework</li>
+</ul>
+<h2>Introduction to React (10 mins)</h2><p>The modern web is becoming <strong>compartmentalized</strong>. [<em>Prompt</em>]: What does this mean to you?</p>
+<p>There are a variety of front-end frameworks to choose from. From Backbone.js to Angular.js, we have frameworks that are great at binding your data to models. This week we are going to look into React.js - a modern front-end framework that was designed by three engineers at Facebook.</p>
+<p>The goal of React was to create components based on views; views as in the <em>view</em> of model-view-control. Imagine breaking a webpage up into multiple elements - you already do that, right? React was designed to solve the problem of breaking front-end design elements into self-contained components. [<em>Prompt</em>]: What sort of design elements have you worked with that could be self-contained?</p>
+<p>If you have a website and want to have encapsulated components for your front end, look no further. And, because React only creates components that act as <em>views</em>, we can use it alongside other frameworks as the <em>view</em> if we want to!</p>
+<h4>Basic React Example</h4><p>Before moving forward, let's take a look at what a React.js component looks like:</p>
+<pre class="prettyprint source lang-html"><code>var Hello = React.createClass({
+    render: function() {
+        return &lt;div>Hello {this.props.name}&lt;/div>;
+    }
+});
+
+ReactDOM.render(
+    &lt;Hello name=&quot;World&quot; />,
+    document.getElementById('container')
+);</code></pre><p>This will render out to be:</p>
+<pre class="prettyprint source lang-html"><code>&lt;section id='container'>
+  Hello world
+&lt;/section></code></pre><p>Now that you've seen this component, [<strong>turn and talk</strong>] with the person next to you and identify new abilities and attribute that you see.</p>
+<h2>Understand what problem React.js solves (20 mins)</h2><p>React was designed to solve the problem of breaking front-end design elements into self-contained components. Let's take a look at what this means to us as developers. Before we can begin solving a problem, we need to see that problem first hand.</p>
+<p>[<em>Groupwork</em>] Break into groups of 3-4 and make use of your graph paper! We're going to wireframe a simple 'coming soon' website.</p>
+<h4>Coming Soon: React</h4><ul>
+<li>In a group of 3-4, wireframe a <em>coming soon</em> website for an upcoming product, film, or an event.</li>
+<li>Create two to three key elements on a coming soon page. One of this will likely be a signup form. What else could there be?</li>
+<li>Once you design your wireframe, split the webpage into individual design components (also known as views).</li>
+<li>Each team member should work to describe each component's attributes and abilities.</li>
+</ul>
+<h2>Use JSX to create a React component - Codealong (25 mins)</h2><h4>Creating a Component with JSX</h4><p>React uses a template language called <strong>JSX</strong>. It is very XML-like in structure. It is designed to abstract away complex HTML design templates into a nice, easy to use tag/attribute style syntax. For those that may be familiar with Angular directives (and how attributes are declared on a tag) this may look familiar. Let's take a look at a few JSX examples:</p>
+<p><em>Example #1:</em></p>
+<pre class="prettyprint source lang-JSX"><code>&lt;div>Would you like to buy {this.props.quantity} apples?&lt;/div></code></pre><p><em>Example #2:</em></p>
+<pre class="prettyprint source lang-JSX"><code>&lt;article>&lt;h1>{this.props.headline}&lt;/h1>
+&lt;p>{this.props.content}&lt;/p>
+&lt;/article></code></pre><p>That's JSX syntax. Now, let's use that syntax to build a component! To build a component, we need to declare a React class. This looks like:</p>
+<pre class="prettyprint source lang-javascript"><code>var component = React.createClass({});</code></pre><p>Each component will have a <code>render()</code> function that <code>return</code>s a JSX template. Let's take a look at how that is structured in our next example.</p>
+<p><em>Example #3:</em></p>
+<pre class="prettyprint source lang-JSX"><code>var Item = React.createClass({
+    render: function () {
+        return &lt;article>
+        &lt;h1>{this.props.title}&lt;/h1>
+        &lt;p>{this.props.description}&lt;/p>
+        &lt;/article>;
+    }
+});</code></pre><p>[<em>Prompt</em>] Are there any questions about the structure of this example?</p>
+<p>[<em>Prompt</em>] Out of all of these JSX examples, what common themes do you see?</p>
+<p>[<em>Answer</em>] You should notice the re-use of <code>this.props.keyValueName</code>. You should also notice that the render function directly creates an XML/HTML like syntax that uses those variables to fill in values.</p>
+<h2>Render basic React components using the ReactDOM (20 minutes)</h2><p>We've created a few React components using JSX together and assigned them to variables. Now, we need to use the <strong>ReactDOM</strong> to render elements on our page.</p>
+<p>This may be a bit confusing, so before we start understand that you write components in React. You will Render the React Components to client side code using the ReactDOM. The ReactDOM then places the final component on your webpage's DOM.</p>
+<p>Now, let's take a look at an overview of how to render with the <strong>ReactDOM</strong>:</p>
+<pre class="prettyprint source lang-Javascript"><code>ReactComponent render(
+  ReactElement element,
+  DOMElement container,
+  [function callback]
+)</code></pre><ul>
+<li>The <em>ReactElement</em> argument is our component (which we defined above). This is the variable name we gave our component when we declared one using <code>React.createClass({});</code></li>
+<li>The <em>DOMElement</em> container is a Javascript selector for the HTML container to place our component inside. Example: <code>document.getElementById('id-to-place-this')</code></li>
+<li>The <em>Callback</em> is a function that can be hooked in to call once the render function has been completed.</li>
+<li>Do not ever, ever render to the <code>body</code> tag. It is not best practice.
+Let's work through the examples we created earlier and render them.</li>
+</ul>
+<p><em>Example #1:</em></p>
+<pre class="prettyprint source lang-javascript"><code>ReactDOM.render(
+    &lt;Message name=&quot;World&quot; />,
+    document.getElementById('message-container')
+);</code></pre><p><em>Example #2:</em></p>
+<pre class="prettyprint source lang-javascript"><code>ReactDOM.render(
+    &lt;Article headline='zomg news' description='Some news is here...' />,
+    document.getElementById('item-container')
+);</code></pre><p><em>Example #3:</em></p>
+<pre class="prettyprint source lang-javascript"><code>ReactDOM.render(
+    &lt;Item title='Star Wars Ticket' description='A long time ago, in a galaxy far, far away...' />,
+    document.getElementById('item-container')
+);</code></pre><h2>Independent Practice (10 minutes)</h2><blockquote>
+<p><strong><em>Note:</em></strong> <em>This can be a pair programming activity or done independently.</em></p>
+</blockquote>
+<ul>
+<li>Browse to https://jsfiddle.net/codeforcoffee/Lst86r0e/</li>
+<li>Create your own React component that describes you! Name it after yourself.</li>
+<li>Use three different <code>props</code> in your component.</li>
+<li>Verify that it renders! Congrats.</li>
+</ul>
+<h2>Conclusion (5 mins)</h2><ul>
+<li>What problems does React.js allow you to solve?</li>
+<li>What React method allows us to declare a component?</li>
+<li>What is the purpose of JSX?</li>
+<li><p>What React construct allows us to render content?</p>
+<h2>v1.0.0</h2></li>
+<li><p>Initial release</p>
+</li>
+</ul></article>
+    </section>
+
+
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Feb 25 2019 14:57:03 GMT+0800 (China Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+
+
+</body>
+</html>

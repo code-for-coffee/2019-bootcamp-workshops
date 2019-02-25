@@ -186,3 +186,6 @@ ReactDOM.render(
 - What React method allows us to declare a component?
 - What is the purpose of JSX?
 - What React construct allows us to render content?
+## v1.0.0
+
+* Initial release
