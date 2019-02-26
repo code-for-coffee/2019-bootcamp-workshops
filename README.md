@@ -1,191 +1,267 @@
 ---
-title: Introduction to React.js
+title: Introduction to Javascript
 type: lesson
-duration: "1:30"
+duration: '2:30'
 creator:
-    name: James Traver
-    city: CHI
-competencies: Programming, Front-end Frameworks, React, JSX
+  name: James Traver
+  city: Chansgha, Hunan, China
+competencies: Programming, Front-end Frameworks, Javascript
 ---
 
-# Introduction to React.js
+# Introduction to Javascript
 
 ### Objectives
-*After this lesson, students will be able to:*
 
-- Understand what problem React.js solves
-- Use JSX to create a React component
-- Render basic React components using the ReactDOM
+_After this lesson, engineers will be able to:_
+
+1. Define variables using _let_, _const_ & _symbol_
+2. Use Javascript variables inside of String templates
+3. Create basic Data structures (Objects & Arrays, Set, Map)
+4. Define functions using lambdas and function syntax
+5. Understand when to destructure a Javascript object
+6. Import a Javascript module and use it
 
 ### Preparation
-*Before this lesson, students should already be able to:*
 
-- Manipulate the DOM with vanilla Javascript
-- Create individual views for design elements
-- Identify the moving parts of an MVC framework
+_Before this lesson, engineers should already be able to:_
 
-## Introduction to React (10 mins)
+- Write basic Javascript in legacy (ES5) syntax
+- Have a basic understanding of programming
 
-The modern web is becoming **compartmentalized**. [*Prompt*]: What does this mean to you?
+## Introduction to Javascript
 
-There are a variety of front-end frameworks to choose from. From Backbone.js to Angular.js, we have frameworks that are great at binding your data to models. This week we are going to look into React.js - a modern front-end framework that was designed by three engineers at Facebook.
+Who has written Javascript? [*Prompt*]: Who has had a problem with Javascript?
 
-The goal of React was to create components based on views; views as in the *view* of model-view-control. Imagine breaking a webpage up into multiple elements - you already do that, right? React was designed to solve the problem of breaking front-end design elements into self-contained components. [*Prompt*]: What sort of design elements have you worked with that could be self-contained?
+#### Resources
 
-If you have a website and want to have encapsulated components for your front end, look no further. And, because React only creates components that act as *views*, we can use it alongside other frameworks as the *view* if we want to!
+- [Babel](https://babeljs.io/docs/learn-es2015/) project for ES2015 syntax.
 
-#### Basic React Example
+## Define variables using _let_, _const_ & _symbol_
 
-Before moving forward, let's take a look at what a React.js component looks like:
+JavaScript has always had `var`:
 
-```html
-var Hello = React.createClass({
-    render: function() {
-        return <div>Hello {this.props.name}</div>;
-    }
+```js
+var name = 'James';
+```
+
+`var` can be hard to manage especially because of it's "function scoping", so now we've got two other ways to define values that have "block scope":
+
+```js
+// var does not have block scope
+var name = 'James';
+if (true) {
+  var name = 'Colt';
+  name; // 'Colt'
+}
+name; // 'Colt'
+
+// let has block scope
+let name = 'James';
+if (true) {
+  let name = 'Colt';
+  name; // 'Colt'
+}
+name; // 'James'
+
+// const has block scope too
+const name = 'James';
+if (true) {
+  const name = 'Colt';
+  name; // 'Colt'
+}
+name; // 'James'
+
+// let can be reassigned
+let isOpen = true;
+isOpen = false;
+isOpen; // false
+
+// const cannot be reassigned
+const isOpen = true;
+isOpen = false; // throws error
+
+// however, const may have child attributes modified
+const myObject = {};
+myObject.name = 'Pokemon';
+```
+
+Block scope helps save on memory allocation on the heap. therefore we don't use `var`.
+
+We use `const` for everything, unless it can be reassigned later, only then do we use `let`. It's a way to let other people know (pun intended) to watch out for that value, because it will likely change over time.
+
+In practice, most of the time use `const`.
+
+Finally, we can use `Symbol` to uniquely identify important items, keys, and data.
+
+```js
+const symbol1 = Symbol();
+const symbol2 = Symbol(42);
+const symbol3 = Symbol('foo');
+
+console.log(typeof symbol1);
+// expected output: "symbol"
+
+console.log(symbol3.toString());
+// expected output: "Symbol(foo)"
+
+console.log(Symbol('foo') === Symbol('foo'));
+// expected output: false
+```
+
+## 2. Use Javascript variables inside of String templates
+
+```js
+const something = 'compose Strings';
+const str = 'nobody likes to ' + something + ' strings this way';
+
+const something = 'lovely stuff';
+const str = `you can do ${something} like this`;
+
+const str = `
+  also
+  multiline
+  is the best
+  yes really!
+`;
+```
+
+## 3. Create basic Data structures (Objects & Arrays, Class)
+
+We do a lot with arrays, here are a few methods we use often:
+
+```js
+const numbers = [1, 2, 3, 4, 5];
+
+// map converts an array to a new, transformed array
+const doubled = numbers.map(number => {
+  return number * 2;
 });
+doubled; // [ 2, 4, 6, 8, 10 ]
 
-ReactDOM.render(
-	<Hello name="World" />,
-    document.getElementById('container')
-);
-```
-
-This will render out to be:
-
-```html
-<section id='container'>
-  Hello world
-</section>
-```
-
-Now that you've seen this component, [**turn and talk**] with the person next to you and identify new abilities and attribute that you see.
-
-
-## Understand what problem React.js solves (20 mins)
-
-React was designed to solve the problem of breaking front-end design elements into self-contained components. Let's take a look at what this means to us as developers. Before we can begin solving a problem, we need to see that problem first hand.
-
-[*Groupwork*] Break into groups of 3-4 and make use of your graph paper! We're going to wireframe a simple 'coming soon' website.
-
-#### Coming Soon: React
-
-* In a group of 3-4, wireframe a *coming soon* website for an upcoming product, film, or an event.
-* Create two to three key elements on a coming soon page. One of this will likely be a signup form. What else could there be?
-* Once you design your wireframe, split the webpage into individual design components (also known as views).
-* Each team member should work to describe each component's attributes and abilities.
-
-
-## Use JSX to create a React component - Codealong (25 mins)
-
-#### Creating a Component with JSX
-
-React uses a template language called **JSX**. It is very XML-like in structure. It is designed to abstract away complex HTML design templates into a nice, easy to use tag/attribute style syntax. For those that may be familiar with Angular directives (and how attributes are declared on a tag) this may look familiar. Let's take a look at a few JSX examples:
-
-*Example #1:*
-
-```JSX
-<div>Would you like to buy {this.props.quantity} apples?</div>
-```
-
-*Example #2:*
-
-```JSX
-<article><h1>{this.props.headline}</h1>
-<p>{this.props.content}</p>
-</article>
-```
-
-That's JSX syntax. Now, let's use that syntax to build a component! To build a component, we need to declare a React class. This looks like:
-
-```javascript
-var component = React.createClass({});
-```
-
-Each component will have a `render()` function that `return`s a JSX template. Let's take a look at how that is structured in our next example.
-
-*Example #3:*
-
-```JSX
-var Item = React.createClass({
-    render: function () {
-        return <article>
-        <h1>{this.props.title}</h1>
-        <p>{this.props.description}</p>
-        </article>;
-    }
+// filter, return false to remove from an array
+const lessThan3 = numbers.filter(n => {
+  return n < 3;
 });
+lessThan3; // [ 1, 2 ]
+
+// remember, that can be super short
+const lessThan3 = numbers.filter(n => n < 3);
 ```
 
-[*Prompt*] Are there any questions about the structure of this example?
+## Concise object methods
 
-[*Prompt*] Out of all of these JSX examples, what common themes do you see?
+You can drop off `: function` from object method definitions.
 
-[*Answer*] You should notice the re-use of `this.props.keyValueName`. You should also notice that the render function directly creates an XML/HTML like syntax that uses those variables to fill in values.
+```js
+const obj = {
+  insteadOfThis: function() {
+    // do stuff
+    // the old way
+  },
 
-## Render basic React components using the ReactDOM (20 minutes)
-
-We've created a few React components using JSX together and assigned them to variables. Now, we need to use the **ReactDOM** to render elements on our page.
-
-This may be a bit confusing, so before we start understand that you write components in React. You will Render the React Components to client side code using the ReactDOM. The ReactDOM then places the final component on your webpage's DOM.
-
-Now, let's take a look at an overview of how to render with the **ReactDOM**:
-
-```Javascript
-ReactComponent render(
-  ReactElement element,
-  DOMElement container,
-  [function callback]
-)
+  youCanDoThis() {
+    // do stuff
+    // the new way
+  },
+};
 ```
 
-* The *ReactElement* argument is our component (which we defined above). This is the variable name we gave our component when we declared one using `React.createClass({});`
-* The *DOMElement* container is a Javascript selector for the HTML container to place our component inside. Example: `document.getElementById('id-to-place-this')`
-* The *Callback* is a function that can be hooked in to call once the render function has been completed.
-* Do not ever, ever render to the `body` tag. It is not best practice.
-Let's work through the examples we created earlier and render them.
+Now, here is a Javascript _class_:
 
-*Example #1:*
-
-```javascript
-ReactDOM.render(
-	<Message name="World" />,
-    document.getElementById('message-container')
-);
+```js
+class Cube {
+  constructor(n) {
+    this.length = n;
+  }
+  area() {
+    return this.length * this.length;
+  }
+  volume() {
+    return this.length * this.length * this.length;
+  }
+}
 ```
 
-*Example #2:*
+This would be written in older Javascript like this.
 
-```javascript
-ReactDOM.render(
-	<Article headline='zomg news' description='Some news is here...' />,
-	document.getElementById('item-container')
-);
+```js
+
+function Cube(n) {
+  this.length = n;
+  this.area = functon() {
+    return this.length * this.length;
+  }
+  this.volume = function() {
+    return (this.length * this.length * this.length);
+  }
+}
 ```
 
-*Example #3:*
+## 4. Define functions using lambdas and function syntax
 
-```javascript
-ReactDOM.render(
-	<Item title='Star Wars Ticket' description='A long time ago, in a galaxy far, far away...' />,
-	document.getElementById('item-container')
-);
+Arrow functions remove the context from a function, meaning the function has no `this`. If you reference `this` inside an arrow function, you get the `this` from outside the function. It also looks great.
+
+```js
+const obj = {
+  url: '/api/pokemon',
+
+  fetch(users) {
+    pokemon.forEach(creature => {
+      // `this` is the `this` from outside this function because
+      // there is no context inside an arrow function
+      getPokemon(`${this.url}/${creature.id}`);
+    });
+  },
+};
 ```
 
-## Independent Practice (10 minutes)
+Also, if the other side of an arrow function is an expression, it acts like an implicit return:
 
-> ***Note:*** _This can be a pair programming activity or done independently._
+```js
+const add = function(x, y) {
+  return x + y;
+};
 
-* Browse to https://jsfiddle.net/codeforcoffee/Lst86r0e/
-* Create your own React component that describes you! Name it after yourself.
-* Use three different `props` in your component.
-* Verify that it renders! Congrats.
+// becomes
+const add = (x, y) => {
+  return x + y;
+};
 
-## Conclusion (5 mins)
-- What problems does React.js allow you to solve?
-- What React method allows us to declare a component?
-- What is the purpose of JSX?
-- What React construct allows us to render content?
-## v1.0.0
+// which can be shorter with explicit expression return
+const add = (x, y) => x + y;
+```
 
-* Initial release
+## 5. Understand when to destructure a Javascript object
+
+```js
+const obj = { x: 1, y: 2 };
+
+// instead of:
+const x = obj.x;
+const y = obj.y;
+
+// we can "destructure" the values off
+const { x, y } = obj;
+x; // 1
+y; // 2
+
+// you can use this all over the place, like function parameters
+function add({ x, y }) {
+  return x + y;
+}
+add({ x: 3, y: 4 }); // 7
+```
+
+## 6. Import a Javascript module and use it
+
+```js
+// instead of cjs
+var React = require('react');
+
+// we use ES modules
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+// and with destructuring to boot!
+import { render } from 'react-dom';
+```

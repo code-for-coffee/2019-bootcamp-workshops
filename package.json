@@ -1,14 +1,13 @@
 {
   "name": "javacript-introduction",
   "version": "1.0.0",
-  "description": "--- title: Introduction to React.js type: lesson duration: \"1:30\" creator:     name: James Traver     city: CHI competencies: Programming, Front-end Frameworks, React, JSX ---",
+  "description": "Javascript Intro Lesson",
   "main": "src/index.js",
   "repository": {
     "type": "git",
     "url": "git@gitlab.backstop.solutions:ui-frameworks/javascript-introduction/javascript-introduction.git"
   },
   "author": "James Traver, Colt Borg",
-  "license": "SEE LICENSE IN BSG",
   "scripts": {
     "build": "babel src --out-dir dist --source-maps",
     "build-docs": "cat CHANGELOG.md >> README.md && node_modules/.bin/jsdoc src/ -d docs/ -t node_modules/docdash/ --readme README.md",
