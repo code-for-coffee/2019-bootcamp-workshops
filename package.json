@@ -12,7 +12,7 @@
     "build": "babel src --out-dir dist --source-maps",
     "build-docs": "cat CHANGELOG.md >> README.md && node_modules/.bin/jsdoc src/ -d docs/ -t node_modules/docdash/ --readme README.md",
     "lint": "npx eslint src/",
-    "start": "node src/index.js",
+    "start": "node dist/index.js",
     "test": "nyc ./node_modules/mocha/bin/mocha tests/*test.js --reporter spec --compilers js:@babel/register --require @babel/polyfill",
     "test-coverage": "npm run test && nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },

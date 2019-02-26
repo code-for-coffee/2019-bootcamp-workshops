@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/Pirate.js"],"names":["name","talk","person"],"mappings":";;;;;;eAAe;AACbA,EAAAA,IAAI,EAAE,QADO;;AAEbC,EAAAA,IAAI,CAACC,MAAD,EAAS;AACX,WAAQ,aAAYA,MAAO,GAA3B;AACD;;AAJY,C","sourcesContent":["export default {\n  name: 'Pirate',\n  talk(person) {\n    return `arrrrrrr, ${person}!`;\n  },\n};\n"],"file":"Pirate.js"}
