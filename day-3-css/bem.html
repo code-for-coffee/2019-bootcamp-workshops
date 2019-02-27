@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BEM | CSS Lesson</title>
+  <!-- Reset CSS -->
+  <link rel="stylesheet" href="reset.css">
+  <style>
+    /* Block */
+    .btn {
+      background-color: #f5f5f5;
+      color: black;
+      font-size: 14px;
+      border: none;
+      border-radius: 6px;
+      padding: 0.5rem 1rem;
+    }
+
+    /* Element */
+    .btn__icon::before {
+      content: "->";
+      width: 14px;
+      height: 14px;
+    }
+
+    /* Modifier */
+    .btn--green {
+      background-color: green;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <button class="btn" type="button">Button</button>
+  <button class="btn" type="button">
+    Button
+    <span class="btn__icon"></span>
+  </button>
+  <button class="btn btn--green" type="button">Button</button>
+</body>
+</html>

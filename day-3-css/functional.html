@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Functional | CSS Lesson</title>
+  <!-- Reset CSS -->
+  <link rel="stylesheet" href="reset.css">
+  <style>
+    .bg-off-white { background-color: #f5f5f5; }
+    .bg-green { background-color: green; }
+    .text-black { color: black; }
+    .text-white { color: white; }
+    .text-base { font-size: 14px; }
+    .border-none { border: none; }
+    .rounded { border-radius: 6px; }
+    .py-1 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+    .px-2 { padding-left: 1rem; padding-right: 1rem; }
+    .width-base { width: 14px; }
+    .height-base { height: 14px; }
+    .before-arrow::before { content: '->'; }
+  </style>
+</head>
+<body>
+  <button class="bg-off-white text-black text-base border-none rounded py-1 px-2" type="button">Button</button>
+  <button class="bg-off-white text-black text-base border-none rounded py-1 px-2" type="button">
+    Button
+    <span class="before-arrow width-base height-base"></span>
+  </button>
+  <button class="bg-green text-white text-base border-none rounded py-1 px-2" type="button">Button</button>
+</body>
+</html>
