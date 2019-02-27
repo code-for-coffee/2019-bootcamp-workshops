@@ -64,7 +64,7 @@ The "Cascade" in CSS applies rules from **top to bottom**.
 
 ###  黄果树瀑布 (Huangguoshu Waterfall)
 
-![Huangguoshu Waterfall](images/huangguoshu-waterfall.jpg)
+![Huangguoshu Waterfall](https://s3-us-west-2.amazonaws.com/s.cdpn.io/269005/huangguoshu-waterfall.jpg)
 
 ---
 
@@ -90,29 +90,29 @@ If two selectors apply to the same element, the one with **higher specificity** 
 
 ---
 
-![Specifishity part 1](images\specifishity-1.png)
+![Specifishity part 1](https://s3-us-west-2.amazonaws.com/s.cdpn.io/269005/specifishity-1.png)
 
 ---
 
-![Specifishity part 2](images\specifishity-2.png)
+![Specifishity part 2](https://s3-us-west-2.amazonaws.com/s.cdpn.io/269005/specifishity-2.png)
 
 ---
 
-![Specifishity part 3](images\specifishity-3.png)
+![Specifishity part 3](https://s3-us-west-2.amazonaws.com/s.cdpn.io/269005/specifishity-3.png)
 
 ---
 
-![Specifishity part 4](images\specifishity-4.png)
+![Specifishity part 4](https://s3-us-west-2.amazonaws.com/s.cdpn.io/269005/specifishity-4-opt.png)
 
 ---
 
-![Specifishity part 5](images\specifishity-5.png)
+![Specifishity part 5](https://s3-us-west-2.amazonaws.com/s.cdpn.io/269005/specifishity-5-opt.png)
 
 ---
 
 ### 计算器 (Specificity Calculator)
 
-![Specificity Calculator](images\specificity-calc.jpg)
+![Specificity Calculator](https://s3-us-west-2.amazonaws.com/s.cdpn.io/269005/specificity-calc.jpg)
 
 [specificity.keegan.st](https://specificity.keegan.st/)
 
@@ -140,11 +140,11 @@ Space between bag to other bag is **margin**.
 
 ### BEM
 
-![BEM 101](images\bem-101.jpg)
-
-[BEM 101 - CodePen](https://codepen.io/coltborg/pen/OqJzNv?editors=0100)
+![BEM 101](https://s3-us-west-2.amazonaws.com/s.cdpn.io/269005/bem-101.jpg)
 
 [CSS Tricks - BEM 101](https://css-tricks.com/bem-101/)
+
+[BEM Example - CodePen](https://codepen.io/coltborg/pen/OqJzNv?editors=0100)
 
 [BEM Example](bem.html)
 
@@ -152,9 +152,9 @@ Space between bag to other bag is **margin**.
 
 ### Functional / Atomic
 
-![Functional 101](images\functional-css.jpg)
+![Functional 101](https://s3-us-west-2.amazonaws.com/s.cdpn.io/269005/functional-css.jpg)
 
-[Functional 101 - CodePen](https://codepen.io/coltborg/pen/modxVJ?editors=1100)
+[Functional Example - CodePen](https://codepen.io/coltborg/pen/modxVJ?editors=1100)
 
 [Functional Example](functional.html)
 
