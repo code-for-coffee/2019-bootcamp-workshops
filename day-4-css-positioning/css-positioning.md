@@ -7,13 +7,13 @@
 * Static
 * Relative
 * Absolute
-* Relative & Fixed
+* Relative & Absolute
 * Fixed
 * Floats
 
 ---
 
-## Static
+## 静态 (Static)
 
 The **default positioning** for all elements.
 
@@ -27,7 +27,7 @@ div {
 
 ---
 
-## Relative
+## 相对 (Relative)
 
 Allows you to position an element **relative** to where it would normally have been on the screen.
 
@@ -35,7 +35,7 @@ Allows you to position an element **relative** to where it would normally have b
 
 ---
 
-## Absolute
+## 绝对 (Absolute)
 
 When using `absolute`, the element is **removed from the flow** of the document and placed exactly where you say to go on the screen.
 
@@ -43,7 +43,7 @@ When using `absolute`, the element is **removed from the flow** of the document 
 
 ---
 
-## Relative & Fixed
+## Relative & Absolute
 
 If we use `relative` on a parent element, then any child element that uses `absolute` will be relative to the parent, not the screen.
 
@@ -51,7 +51,7 @@ If we use `relative` on a parent element, then any child element that uses `abso
 
 ---
 
-## Fixed
+## 固定 (Fixed)
 
 When using `fixed`, the element is **removed from the flow** of the document and placed exactly where you say to go on the `viewport`. Which means it **will not move** when you scroll.
 
@@ -59,7 +59,7 @@ When using `fixed`, the element is **removed from the flow** of the document and
 
 ---
 
-## Floats
+## 浮动 (Floats)
 
 We can `float` an element to push it as far as possible to the right or to the left, and allow text to wrap around it.
 
