@@ -120,7 +120,7 @@ If two selectors apply to the same element, the one with **higher specificity** 
 
 ## Box Model
 
-![Box Model Example showing content, padding, border, and margin.](images\box-model.png)
+![Box Model Example showing content, padding, border, and margin.](https://s3-us-west-2.amazonaws.com/s.cdpn.io/269005/box-model.png)
 
 ---
 
