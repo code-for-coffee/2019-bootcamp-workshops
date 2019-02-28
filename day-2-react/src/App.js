@@ -1,26 +1,42 @@
 import React, { Component, Fragment } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 
-import Pokemon from "./Pokemon";
+import Layout from "./Layout";
+
+import { Button } from "reactstrap";
 
 class App extends Component {
   constructor(props) {
     super(props);
     //debugger;\
     console.log("Instantiated App");
+    this.state = {
+      showPokemon: false
+    };
   }
+
+  togglePokemon() {
+    this.setState({
+      showPokemon: !this.state.showPokemon
+    });
+    console.log("State for Pokemon is", this.state.showPokemon);
+  }
+
   render() {
     console.log("Rendering App");
     const { appName } = this.props;
+    const { showPokemon } = this.state;
     return (
       <Fragment>
-        {appName}
-        <Pokemon
-          name="Slowbro"
-          description="Really, really slow"
-          imageURL="https://tse4.mm.bing.net/th?id=OIP.ioWmmNTyFBaNJ1v5T87iIQHaIn&pid=Api"
-        />
+        <Layout appName={appName} shouldRender={showPokemon} />
+        <Button
+          onClick={event => {
+            console.log(event);
+            this.togglePokemon();
+          }}
+        >
+          Toggle Pokemon for sale
+        </Button>
       </Fragment>
     );
   }
