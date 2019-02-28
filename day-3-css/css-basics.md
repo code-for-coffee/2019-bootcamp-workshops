@@ -8,7 +8,6 @@
 * The Cascade
 * Specificity
 * Box Model
-* Layout
 * Naming Conventions
 
 ---
