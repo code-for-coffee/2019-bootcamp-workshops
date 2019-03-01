@@ -1,26 +1,71 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
 
+import Spinner from "./components/Spinner";
+import Pokemon from "./components/Pokemon";
+
+// we only import jQuery for now...
+// we will replace with fetch()
+import $ from "jquery";
+
+/**
+ * App Container for React application.
+ * It will render a spinner until data is fetched.
+ * We store the state of the application in
+ * component state (isLoading: true)
+ */
 class App extends Component {
+  // define initial state without constructor
+  state = {
+    isLoading: true,
+    pokemon: "eevee",
+    // always declare items you will fetch so the variable
+    // exists in state no matter if data is there or not
+    // in this case, "data"
+    data: null
+  };
+
+  /**
+   * We will refactor this method to remove $.ajax with fetch()
+   */
+  fetchPokemon() {
+    const { pokemon } = this.state;
+    const URL = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
+    $.ajax({
+      url: URL
+    }).done(json => {
+      console.log("API Data", json);
+      this.setState({
+        isLoading: false,
+        data: json
+      });
+    });
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.fetchPokemon();
+    }, 5000);
+  }
+
   render() {
+    const { isLoading, data } = this.state;
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+      <React.Fragment>
+        <header>
+          <h1>Pokemon Shop</h1>
         </header>
-      </div>
+
+        <section className="container">
+          <div className="box">
+            Welcome to the Pokemon Store. Here you can find great Pokemon! Thank
+            you for shopping at your local Pokemart!
+          </div>
+          <div className="box">
+            {isLoading ? <Spinner /> : <Pokemon data={data} />}
+          </div>
+        </section>
+      </React.Fragment>
     );
   }
 }
