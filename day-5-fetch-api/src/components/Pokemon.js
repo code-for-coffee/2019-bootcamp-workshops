@@ -1,6 +1,8 @@
 import React from "react";
 
 const Pokemon = ({ data }) => {
+  console.log("Lambda Stateless This", this);
+
   console.log("PokeomonComponent render()", data);
 
   const { name, base_experience, sprites } = data;
